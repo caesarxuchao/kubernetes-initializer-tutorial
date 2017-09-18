@@ -1,0 +1,23 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  initializers:
+    pending: []
+  labels:
+    app: image-label-initializer
+  name: image-label-initializer
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: image-label-initializer
+      name: image-label-initializer
+    spec:
+      containers:
+        - name: image-label-initializer
+          image: gcr.io/chao1-149704/noop-initializer:0.0.1
+          imagePullPolicy: Never
+          env:
+          - name: "INITIALIZER_NAME"
+            value: "imagelabel.demo.io"

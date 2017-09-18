@@ -1,0 +1,5 @@
+#!/bin/bash
+./build
+docker build -t gcr.io/chao1-149704/noop-initializer:0.0.1 .
+#gcloud docker -- push gcr.io/chao1-149704/noop-initializer:0.0.1
+rm ./noop-initializer
